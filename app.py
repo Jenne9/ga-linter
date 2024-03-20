@@ -11,16 +11,16 @@ DATA_FILE = "data/todolist.yaml"
 absolute_path = os.path.abspath(DATA_FILE)
 
 # Vérifie si le fichier existe, le créer s'il n'existe pas, sinon il charge le fichier des tâches
-        def load_todolist():
-            try:
-                with open(DATA_FILE, 'r') as file:
-                    todo_list = yaml.safe_load(file)
-                    if todo_list is None:
-                        return []
-                    else:
-                        return todo_list
-            except FileNotFoundError:
+def load_todolist():
+    try:
+        with open(DATA_FILE, 'r') as file:
+            todo_list = yaml.safe_load(file)
+            if todo_list is None:
                 return []
+            else:
+                return todo_list
+    except FileNotFoundError:
+        return []
 
 # Sauvegarde la liste des tâches dans le fichier YAML
 def save_todolist(todo_list):
@@ -68,10 +68,3 @@ def readiness():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
-
-
-
-
-
-
-
